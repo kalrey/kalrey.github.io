@@ -1,7 +1,7 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:year/:month/:day/:title 
-markdown: rdiscount
+markdown: kramdown
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
 #mardown: redcarpet
@@ -21,6 +21,7 @@ author :
   github : kalrey
   twitter : 
   feedburner : 
+
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

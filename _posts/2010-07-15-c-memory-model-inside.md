@@ -111,45 +111,40 @@ classX:RTTI_BCD   原语：classX:RTTI Base class Descriptor
 附上COL相关结构定义（根据IDA 中数据猜测的结构）：
 
 {% highlight c++ %}
-	typedef struct _tagRTTI_Type_Descriptor
-	{
-		void* pAddressOfProc;
-		long reserve_1;
-		long signature;   //always 0x56413F2E?
-		char szClassName[1];
-	}RTTI_Type_Descriptor;
+typedef struct _tagRTTI_Type_Descriptor{
+	void* pAddressOfProc;
+	long reserve_1;
+	long signature;   //always 0x56413F2E?
+	char szClassName[1];
+}RTTI_Type_Descriptor;
 
-	struct _tagRTTI_Hierarchy_Descriptor;
+struct _tagRTTI_Hierarchy_Descriptor;
 
-	typedef struct _tagRTTI_Base_Class_Descriptor
-	{
-		RTTI_Type_Descriptor* pTypeDescriptor;
-		DWORD dwBaseClassCount;
-		DWORD dwOffset_x;
-		DWORD dwReserve_1;
-		DWORD dwReserve_2;
-		DWORD dwReserve_3;
-		struct _tagRTTI_Hierarchy_Descriptor* pHierarchyDescriptor;
-	}RTTI_Base_Class_Descriptor;
+typedef struct _tagRTTI_Base_Class_Descriptor{
+	RTTI_Type_Descriptor* pTypeDescriptor;
+	DWORD dwBaseClassCount;
+	DWORD dwOffset_x;
+	DWORD dwReserve_1;
+	DWORD dwReserve_2;
+	DWORD dwReserve_3;
+	struct _tagRTTI_Hierarchy_Descriptor* pHierarchyDescriptor;
+}RTTI_Base_Class_Descriptor;
 
 
-	typedef struct _tagRTTI_Hierarchy_Descriptor
-	{
-		DWORD reserve_1;
-		DWORD reserve_2;
-		DWORD dwArrayElemCount;
-		void* pBaseClassArray;
-	}RTTI_Hierarchy_Descriptor;
+typedef struct _tagRTTI_Hierarchy_Descriptor{
+	DWORD reserve_1;
+	DWORD reserve_2;
+	DWORD dwArrayElemCount;
+	void* pBaseClassArray;
+}RTTI_Hierarchy_Descriptor;
 
-	typedef struct _tagRTTI_COL_x
-	{
-		long reserve_1;
-		long offsetVTable;
-		long reserve_3;
-		RTTI_Type_Descriptor* pTypeDescriptor;
-		RTTI_Hierarchy_Descriptor* pHierarchyDescriptor;
-	}RTTI_COL_X;
-
+typedef struct _tagRTTI_COL_x{
+	long reserve_1;
+	long offsetVTable;
+	long reserve_3;
+	RTTI_Type_Descriptor* pTypeDescriptor;
+	RTTI_Hierarchy_Descriptor* pHierarchyDescriptor;
+}RTTI_COL_X;
 
 {% endhighlight %}
 
